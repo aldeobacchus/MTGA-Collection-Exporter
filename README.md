@@ -2,17 +2,13 @@
 
 This Python script exports your entire **Magic: The Gathering Arena** card collection directly from **Untapped.gg**.
 
-It generates clean text files listing all your cards **line by line**, sorted in the exact same order as displayed on Untapped.gg (by mana value / CMC, then lands at the end, excluding generic basic lands).
+If you don't have any Untapped.gg collection yet, you can create an account and add the companion app [Untapped.gg Companion](https://mtga.untapped.gg/companion). 
 
----
+Your Untapped profile has to be public. If you want to keep your profile visibilty to private, you can download the html page and run the script with the `--html` argument.
 
-## Key Improvements
+It generates clean text files listing all your cards line by line, by mana value / CMC, then lands at the end, excluding generic basic lands.
 
-- **No HTML file download required!** You can now simply pass your public Untapped.gg collection URL (or let the script ask for it once).
-- **Auto-Config**: Once run with your URL, your settings are saved in `config.json`—future runs only require typing `python export_cards.py`.
-- **One-Command Refresh (`--refresh` / `-r`)**: Fetches your latest collection updates directly from Untapped.gg's API at any time.
 
----
 
 ## Table of Contents
 
@@ -23,7 +19,6 @@ It generates clean text files listing all your cards **line by line**, sorted in
 - [Generated Output Files](#generated-output-files)
 - [Cache & How It Works](#cache--how-it-works)
 
----
 
 ## Features
 
@@ -35,12 +30,11 @@ It generates clean text files listing all your cards **line by line**, sorted in
 - **Exact Untapped.gg Ordering**:
   - Non-land cards first (sorted by ascending mana value / CMC, then alphabetically).
   - Lands at the end (sorted alphabetically).
-  - Starts with the very first card (*Accorder's Shield*) and ends with the very last (*Zanarkand, Ancient Metropolis*).
 - **Dual Export Formats**:
   - Line-by-line card names (`collection_cards.txt`).
   - Standard Magic Arena deck import format with quantities (`cards_with_quantity.txt`).
 
----
+
 
 ## Quick Start
 
@@ -72,18 +66,12 @@ python export_cards.py --refresh
 
 This bypasses the local collection cache and retrieves your latest cards immediately.
 
----
 
 ## How to Find Your Collection URL
 
 1. Open your browser and log in to [Untapped.gg](https://mtga.untapped.gg/).
 2. Click your avatar/profile in the top right > **Collection**.
-3. Copy the URL from your browser's address bar. It looks like:
-   ```
-   https://mtga.untapped.gg/profile/63f2f410-706e-43f7-8791-0ae7857cd0d7/ABDZQJC4VVCZPEAW4GIAWW3S6Y/collection
-   ```
-
----
+3. Copy the URL from your browser's address bar.
 
 ## Command-Line Options
 
@@ -115,7 +103,6 @@ This bypasses the local collection cache and retrieves your latest cards immedia
   python export_cards.py -o "my_cards.txt" --out-qty "my_cards_quantities.txt"
   ```
 
----
 
 ## Generated Output Files
 
@@ -140,7 +127,6 @@ Zanarkand, Ancient Metropolis
 ...
 ```
 
----
 
 ## Cache & How It Works
 
